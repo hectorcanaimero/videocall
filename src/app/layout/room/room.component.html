@@ -1,0 +1,73 @@
+<section id="user">
+  <div class="container">
+    <h2 class="border-bottom pb-2">Usuário</h2>
+    <div class="row">
+      <div class="col-xl-5">
+        <div class="w-100 border rounded px-5">
+          <form [formGroup]="fmRoom">
+            <div class="md-form">
+              <input mdbInput type="text" id="name" class="form-control" formControlName="name">
+              <label for="name">Nome</label>
+            </div>
+            <div class="md-form">
+              <input mdbInput type="text" id="url" class="form-control" formControlName="url">
+              <label for="url">URL</label>
+            </div>
+            <div class="form-group">
+                <label for="medico">Medico</label>
+              <select mdbInput class="select-wrapper custom-select " id="medico" formControlName="medico_id">
+                <option selected></option>
+                <option *ngFor="let m of medicos" value="{{m.id}}">{{m.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="cliente">Paciente</label>
+              <select mdbInput class="select-wrapper custom-select " id="cliente" formControlName="cliente_id">
+                <option selected></option>
+                <option *ngFor="let p of clientes" value="{{p.id}}">{{p.name}}</option>
+              </select>
+            </div>
+            <div class="md-form">
+              <button type="button" mdbBtn color="success" [disabled]='!fmRoom.valid' (click)='onSubmit()'
+                class="btn-block" mdbWavesEffect>Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-7">
+        <h5 class='bold text-center text-principal'>Room Ativos</h5>
+        <table mdbTable>
+          <thead>
+            <tr>
+              <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let a of roomsA">
+              <th scope="row"><span class="bold text-uppercase">{{a.name}}</span></th>
+              <td><a routerLink="/room/{{a.url}}" target="_blank">Link</a></td>
+              <td><nomes [id]='a.medico_id' (nome)='getMome($event)'></nomes></td>
+              <td><nomes [id]='a.cliente_id' (nome)='getMome($event)'></nomes></td>
+            </tr>
+          </tbody>
+        </table>
+        <h5 class='bold text-center text-principal'>Room Inativos</h5>
+        <table mdbTable>
+          <thead>
+            <tr>
+              <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let a of roomsI">
+              <th scope="row"><span class="bold text-uppercase">{{a.name}}</span></th>
+              <td><a routerLink="/room/{{a.url}}" target="_blank">Link</a></td>
+              <td><nomes [id]='a.medico_id' (nome)='getMome($event)'></nomes></td>
+              <td><nomes [id]='a.cliente_id' (nome)='getMome($event)'></nomes></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

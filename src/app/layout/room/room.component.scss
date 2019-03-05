@@ -1,0 +1,22 @@
+.md-form .prefix~input,
+.md-form .prefix~select,
+.md-form .prefix~textarea {
+  margin-left: 2.5rem;
+  width: calc(100% - 2.5rem);
+}
+
+.select-wrapper {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    outline: 0;
+    height: 2.9rem;
+    line-height: 2.9rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 .94rem 0;
+    padding: 0;
+    display: block;
+}

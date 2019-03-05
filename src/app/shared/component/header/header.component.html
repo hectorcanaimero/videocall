@@ -1,0 +1,16 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark success-color mb-5">
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Teralumen</a></mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"  routerLinkActive="active">
+            <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/painel']">Home</a>
+        </li>
+        <li class="nav-item"  routerLinkActive="active">
+            <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/users']">Usuário</a>
+        </li>
+        <li class="nav-item"  routerLinkActive="active">
+            <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/room']">Room</a>
+        </li>
+    </ul>
+  </links>
+</mdb-navbar>

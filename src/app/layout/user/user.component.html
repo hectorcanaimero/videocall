@@ -1,0 +1,55 @@
+<section id="user">
+  <div class="container">
+    <h2 class="border-bottom pb-2">Usuário</h2>
+    <div class="row">
+      <div class="col-xl-5">
+        <div class="w-100 border rounded px-5">
+          <form [formGroup]="fmUser">
+            <div class="md-form">
+              <input mdbInput type="text" id="name" class="form-control" formControlName="name">
+              <label for="name">Nome</label>
+            </div>
+            <div class="md-form">
+              <input mdbInput type="email" id="email" class="form-control" formControlName="email">
+              <label for="email">E-mail</label>
+            </div>
+            <div class="md-form">
+              <input mdbInput type="password" id="pass" class="form-control" formControlName="password">
+              <label for="pass">Senha</label>
+            </div>
+            <div class="form-group">
+                <label for="role">Rol</label>
+              <select mdbInput class="select-wrapper custom-select " id="role" formControlName="role">
+                <option selected></option>
+                <option value="admin">Admin</option>
+                <option value="medico">Médico</option>
+                <option value="paciente">Paciente</option>
+              </select>
+            </div>
+            <div class="md-form">
+              <button type="button" mdbBtn color="success" [disabled]='!fmUser.valid' (click)='onSubmit()'
+                class="btn-block" mdbWavesEffect>Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-7">
+        <table mdbTable>
+          <thead>
+            <tr>
+              <th *ngFor="let head of headElements" scope="col">{{head}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let el of users">
+              <th scope="row"><span class="bold text-uppercase">{{el.role}}</span></th>
+              <td>{{el.name}}</td>
+              <td>{{el.email}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
